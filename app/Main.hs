@@ -3,4 +3,11 @@ module Main where
 import Lib
 
 main :: IO ()
-main = generate100RandomBars >>= (putStrLn . show)
+main = do
+  randomBars <- generate100RandomBars
+  let biggestSquare :: [Int]
+      biggestSquare = findBiggestSquare randomBars
+  putStrLn (show randomBars)
+  putStrLn (show biggestSquare)
+
+
