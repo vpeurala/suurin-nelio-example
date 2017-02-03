@@ -7,7 +7,7 @@ main = do
   randomBars <- generate100RandomBars
   let biggestSquare :: [Int]
       biggestSquare = findBiggestSquare randomBars
-  putStrLn (show randomBars)
-  putStrLn (show biggestSquare)
+  putStrLn (showRowOfBars randomBars)
+  putStrLn (showRowOfBars biggestSquare)
 
 

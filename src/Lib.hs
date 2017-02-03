@@ -2,6 +2,7 @@ module Lib
     (
      findBiggestSquare
    , generate100RandomBars
+   , showRowOfBars
     ) where
 
 import Control.Monad (forM, join, replicateM)
@@ -13,3 +14,6 @@ generate100RandomBars =
 
 findBiggestSquare :: [Int] -> [Int]
 findBiggestSquare = id
+
+showRowOfBars :: [Int] -> String
+showRowOfBars = show
