@@ -16,4 +16,13 @@ findBiggestSquare :: [Int] -> [Int]
 findBiggestSquare = id
 
 showRowOfBars :: [Int] -> String
-showRowOfBars = show
+showRowOfBars bars =
+  let minBar = minimum bars
+      maxBar = maximum bars
+      length' = length bars
+      range = enumFromThenTo maxBar (maxBar - 1) minBar
+      meter :: [String]
+      meter = fmap (\height -> fmap (\bar -> mark bar height) bars) range
+      mark :: Int -> Int -> Char
+      mark bar height = if (bar >= height) then '*' else ' '
+  in show (range, show meter, length')
