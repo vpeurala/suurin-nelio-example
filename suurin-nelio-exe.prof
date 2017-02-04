@@ -1,0 +1,65 @@
+	Sat Feb  4 21:17 2017 Time and Allocation Profiling Report  (Final)
+
+	   suurin-nelio-exe +RTS -N -P -RTS
+
+	total time  =        0.77 secs   (771 ticks @ 1000 us, 1 processor)
+	total alloc = 248,505,768 bytes  (excludes profiling overheads)
+
+COST CENTRE                 MODULE  %time %alloc  ticks     bytes
+
+containsSquareOfSize        Lib      85.3    7.0    658  17390736
+main                        Main      4.2    0.5     32   1139504
+showRowOfBars.row           Lib       3.9   35.4     30  88016000
+showRowOfBars               Lib       2.9   22.6     22  56183968
+containsSquareOfSize.window Lib       2.2   34.3     17  85248736
+showRowOfBars.mark          Lib       1.2    0.0      9         0
+
+
+                                                                                    individual      inherited
+COST CENTRE                                MODULE                no.     entries  %time %alloc   %time %alloc  ticks     bytes
+
+MAIN                                       MAIN                  307          0    0.0    0.1   100.0  100.0      0    318984
+ main                                      Main                  615          0    4.2    0.4     4.2    0.4     32    919960
+  main.biggestSquare                       Main                  631          1    0.0    0.0     0.0    0.0      0         0
+ CAF:main1                                 Main                  612          0    0.0    0.0     0.0    0.0      0        16
+  main                                     Main                  614          1    0.0    0.0     0.0    0.0      0         0
+ CAF:main4                                 Main                  611          0    0.0    0.0     8.3   58.1      0         0
+  main                                     Main                  620          0    0.0    0.0     8.3   58.1      0         0
+   showRowOfBars                           Lib                   621          1    2.9   22.6     8.3   58.1     22  56183880
+    showRowOfBars.meter                    Lib                   625          1    0.0    0.0     5.4   35.5      0     88016
+     showRowOfBars.meter.\                 Lib                   626       1000    0.0    0.0     5.4   35.4      0         0
+      showRowOfBars.row                    Lib                   627       1000    3.9   35.4     5.4   35.4     30  88016000
+       showRowOfBars.row.\                 Lib                   628    1000000    0.4    0.0     1.6    0.0      3         0
+        showRowOfBars.mark                 Lib                   629    1000000    1.2    0.0     1.2    0.0      9         0
+    showRowOfBars.range                    Lib                   624          1    0.0    0.0     0.0    0.0      0     79984
+    showRowOfBars.maxBar                   Lib                   623          1    0.0    0.0     0.0    0.0      0        16
+    showRowOfBars.minBar                   Lib                   622          1    0.0    0.0     0.0    0.0      0        16
+ CAF:main2                                 Main                  610          0    0.0    0.0     0.0    0.0      0         0
+  main                                     Main                  632          0    0.0    0.0     0.0    0.0      0        96
+ CAF:main3                                 Main                  609          0    0.0    0.0    87.5   41.3      0         0
+  main                                     Main                  633          0    0.0    0.0    87.5   41.3      0         0
+   main.biggestSquare                      Main                  634          0    0.0    0.0    87.5   41.3      0        16
+    findBiggestSquareSize                  Lib                   635          1    0.0    0.0    87.5   41.3      0         0
+     iterativelyFindBiggestSquareSize      Lib                   639        935    0.0    0.0    87.5   41.3      0         0
+      containsSquareOfSize                 Lib                   640     272665   85.3    7.0    87.5   41.3    658  17390736
+       containsSquareOfSize.window         Lib                   641     271731    2.2   34.3     2.2   34.3     17  85248736
+     findBiggestSquareSize.startingAttempt Lib                   638          1    0.0    0.0     0.0    0.0      0         0
+     findBiggestSquareSize.length'         Lib                   637          1    0.0    0.0     0.0    0.0      0         0
+     findBiggestSquareSize.maxBar          Lib                   636          1    0.0    0.0     0.0    0.0      0        16
+ CAF:main5                                 Main                  608          0    0.0    0.0     0.0    0.1      0         0
+  main                                     Main                  616          0    0.0    0.1     0.0    0.1      0    219432
+ CAF:main_randomBars                       Main                  607          0    0.0    0.0     0.0    0.0      0         0
+  main                                     Main                  617          0    0.0    0.0     0.0    0.0      0        16
+   main.randomBars                         Main                  618          1    0.0    0.0     0.0    0.0      0         0
+ CAF:bars                                  Main                  606          0    0.0    0.0     0.0    0.0      0        24
+  bars                                     Main                  619          1    0.0    0.0     0.0    0.0      0         0
+ CAF:showRowOfBars1                        Lib                   605          0    0.0    0.0     0.0    0.0      0         0
+  showRowOfBars                            Lib                   630          0    0.0    0.0     0.0    0.0      0        88
+ CAF                                       GHC.Conc.Signal       395          0    0.0    0.0     0.0    0.0      0       656
+ CAF                                       GHC.IO.Encoding       378          0    0.0    0.0     0.0    0.0      0      2872
+ CAF                                       GHC.IO.Encoding.Iconv 376          0    0.0    0.0     0.0    0.0      0       232
+ CAF                                       GHC.IO.Handle.FD      367          0    0.0    0.0     0.0    0.0      0     34512
+ CAF                                       GHC.IO.Handle.Text    365          0    0.0    0.0     0.0    0.0      0        88
+ CAF                                       GHC.Event.KQueue      326          0    0.0    0.0     0.0    0.0      0        48
+ CAF                                       GHC.Event.Poll        323          0    0.0    0.0     0.0    0.0      0        96
+ CAF                                       GHC.Event.Thread      322          0    0.0    0.0     0.0    0.0      0      1232

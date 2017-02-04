@@ -1,7 +1,7 @@
 module Lib
     (
      findBiggestSquareSize
-   , generate100RandomBars
+   , generateRandomBars
    , showRowOfBars
     ) where
 
@@ -10,9 +10,9 @@ import Data.List (all, intercalate)
 import Debug.Trace (trace)
 import System.Random (getStdRandom, randomR)
 
-generate100RandomBars :: IO [Int]
-generate100RandomBars =
-  replicateM 100 (getStdRandom (randomR (1 :: Int, 100)))
+generateRandomBars :: IO [Int]
+generateRandomBars =
+  replicateM 1000 (getStdRandom (randomR (1 :: Int, 1000)))
 
 -- The width and height (which are the same number) of a square,
 -- represented as a single number here.
@@ -46,7 +46,7 @@ containsSquareOfSize bars size | length bars < size = False
 containsSquareOfSize bars size | length bars == size = all (>= size) bars
 containsSquareOfSize bars size =
   let window = take size bars
-  in  (all (>= size) window) || (containsSquareOfSize (tail bars) size)
+  in  (all (>= size) window) || (containsSquareOfSize (dropWhile (< size) (tail bars)) size)
 
 showRowOfBars :: [Bar] -> String
 showRowOfBars bars =
