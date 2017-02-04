@@ -12,7 +12,7 @@ import System.Random (getStdRandom, randomR)
 
 generate100RandomBars :: IO [Int]
 generate100RandomBars =
-  replicateM 100 (getStdRandom (randomR (1 :: Int, 6)))
+  replicateM 100 (getStdRandom (randomR (1 :: Int, 100)))
 
 -- The width and height (which are the same number) of a square,
 -- represented as a single number here.
@@ -36,17 +36,17 @@ findBiggestSquareSize bars =
 iterativelyFindBiggestSquareSize :: [Bar] -> SquareSize -> SquareSize
 iterativelyFindBiggestSquareSize _ 1 = 1
 iterativelyFindBiggestSquareSize bars attemptedSize =
-  trace ("attempt size " ++ (show attemptedSize))
-  (if (containsSquareOfSize bars attemptedSize)
+  if (containsSquareOfSize bars attemptedSize)
   then attemptedSize
-  else iterativelyFindBiggestSquareSize bars (attemptedSize - 1))
+  else iterativelyFindBiggestSquareSize bars (attemptedSize - 1)
 
 containsSquareOfSize :: [Bar] -> SquareSize -> Bool
 containsSquareOfSize _ 1 = True
 containsSquareOfSize bars size | length bars < size = False
+containsSquareOfSize bars size | length bars == size = all (>= size) bars
 containsSquareOfSize bars size =
   let window = take size bars
-  in  trace (show window) (all (\b -> b >= size) window)
+  in  (all (>= size) window) || (containsSquareOfSize (tail bars) size)
 
 showRowOfBars :: [Bar] -> String
 showRowOfBars bars =
@@ -59,5 +59,5 @@ showRowOfBars bars =
       row :: Int -> String
       row height = fmap (\bar -> mark bar height) bars
       mark :: Int -> Int -> Char
-      mark bar height = if (bar >= height) then '*' else ' '
+      mark bar height = if (bar >= height) then '0' else ' '
   in intercalate "\n" meter
