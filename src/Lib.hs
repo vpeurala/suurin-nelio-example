@@ -6,7 +6,8 @@ module Lib
     ) where
 
 import Control.Monad (forM, join, replicateM)
-import Data.List (intercalate)
+import Data.List (all, intercalate)
+import Debug.Trace (trace)
 import System.Random (getStdRandom, randomR)
 
 generate100RandomBars :: IO [Int]
@@ -29,19 +30,23 @@ findBiggestSquareSize bars =
       -- a square contained in a rectangle with width = length'
       -- and height = maxBar cannot be larger than the smaller of
       -- the dimensions.
-      startingAttempt = max maxBar length'
+      startingAttempt = min maxBar length'
   in  iterativelyFindBiggestSquareSize bars startingAttempt
 
 iterativelyFindBiggestSquareSize :: [Bar] -> SquareSize -> SquareSize
 iterativelyFindBiggestSquareSize _ 1 = 1
 iterativelyFindBiggestSquareSize bars attemptedSize =
-  if (containsSquareOfSize bars attemptedSize)
+  trace ("attempt size " ++ (show attemptedSize))
+  (if (containsSquareOfSize bars attemptedSize)
   then attemptedSize
-  else iterativelyFindBiggestSquareSize bars (attemptedSize - 1)
+  else iterativelyFindBiggestSquareSize bars (attemptedSize - 1))
 
 containsSquareOfSize :: [Bar] -> SquareSize -> Bool
 containsSquareOfSize _ 1 = True
-containsSquareOfSize bars size = undefined
+containsSquareOfSize bars size | length bars < size = False
+containsSquareOfSize bars size =
+  let window = take size bars
+  in  trace (show window) (all (\b -> b >= size) window)
 
 showRowOfBars :: [Bar] -> String
 showRowOfBars bars =
