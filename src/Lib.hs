@@ -28,4 +28,4 @@ showRowOfBars bars =
       row height = fmap (\bar -> mark bar height) range
       mark :: Int -> Int -> Char
       mark bar height = if (bar >= height) then '*' else ' '
-  in show (range, intercalate "\n" meter, length')
+  in intercalate "\n" meter
