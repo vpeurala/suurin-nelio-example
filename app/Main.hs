@@ -8,6 +8,6 @@ main = do
   let biggestSquare :: [Int]
       biggestSquare = findBiggestSquare randomBars
   putStrLn (showRowOfBars randomBars)
-  putStrLn (showRowOfBars biggestSquare)
+  --putStrLn (showRowOfBars biggestSquare)
 
 
