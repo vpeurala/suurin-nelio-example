@@ -45,8 +45,12 @@ containsSquareOfSize _ 1 = True
 containsSquareOfSize bars size | length bars < size = False
 containsSquareOfSize bars size | length bars == size = all (>= size) bars
 containsSquareOfSize bars size =
-  let window = take size bars
-  in  (all (>= size) window) || (containsSquareOfSize (dropWhile (< size) (tail bars)) size)
+  let (window, rest) = splitAt size bars
+      keptFromWindow = reverse (takeWhile (>= size) (reverse window))
+  in  (all (>= size) window) ||
+      (containsSquareOfSize
+        (keptFromWindow ++ rest)
+        size)
 
 showRowOfBars :: [Bar] -> String
 showRowOfBars bars =

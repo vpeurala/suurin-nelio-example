@@ -1,53 +1,48 @@
-	Sat Feb  4 21:54 2017 Time and Allocation Profiling Report  (Final)
+	Sat Feb  4 21:48 2017 Time and Allocation Profiling Report  (Final)
 
 	   suurin-nelio-exe +RTS -N -P -RTS
 
-	total time  =        0.16 secs   (156 ticks @ 1000 us, 1 processor)
-	total alloc = 263,587,344 bytes  (excludes profiling overheads)
+	total time  =        0.78 secs   (778 ticks @ 1000 us, 1 processor)
+	total alloc = 248,370,336 bytes  (excludes profiling overheads)
 
-COST CENTRE                         MODULE  %time %alloc  ticks     bytes
+COST CENTRE                 MODULE  %time %alloc  ticks     bytes
 
-containsSquareOfSize.(...)          Lib      26.9   37.1     42  97677056
-showRowOfBars.row                   Lib      24.4   33.4     38  88016000
-main                                Main     20.5    0.4     32   1150328
-showRowOfBars                       Lib       8.3   21.3     13  56183968
-showRowOfBars.mark                  Lib       6.4    0.0     10         0
-showRowOfBars.row.\                 Lib       5.8    0.0      9         0
-containsSquareOfSize.keptFromWindow Lib       3.8    7.3      6  19207736
-containsSquareOfSize                Lib       3.2    0.3      5    766744
+containsSquareOfSize        Lib      83.7    7.0    651  17390736
+showRowOfBars.row           Lib       4.0   35.4     31  88016000
+main                        Main      4.0    0.4     31   1115152
+containsSquareOfSize.window Lib       3.0   34.3     23  85248736
+showRowOfBars               Lib       2.6   22.6     20  56183968
+showRowOfBars.mark          Lib       1.9    0.0     15         0
 
 
                                                                                     individual      inherited
 COST CENTRE                                MODULE                no.     entries  %time %alloc   %time %alloc  ticks     bytes
 
-MAIN                                       MAIN                  307          0    0.0    0.1   100.0  100.0      0    377672
- main                                      Main                  615          0   20.5    0.4    20.5    0.4     32    930784
+MAIN                                       MAIN                  307          0    0.1    0.1   100.0  100.0      1    207904
+ main                                      Main                  615          0    4.0    0.4     4.0    0.4     31    895608
   main.biggestSquare                       Main                  631          1    0.0    0.0     0.0    0.0      0         0
  CAF:main1                                 Main                  612          0    0.0    0.0     0.0    0.0      0        16
   main                                     Main                  614          1    0.0    0.0     0.0    0.0      0         0
- CAF:main4                                 Main                  611          0    0.0    0.0    45.5   54.8      0         0
-  main                                     Main                  620          0    0.0    0.0    45.5   54.8      0         0
-   showRowOfBars                           Lib                   621          1    8.3   21.3    45.5   54.8     13  56183880
-    showRowOfBars.meter                    Lib                   625          1    0.6    0.0    37.2   33.4      1     88016
-     showRowOfBars.meter.\                 Lib                   626       1000    0.0    0.0    36.5   33.4      0         0
-      showRowOfBars.row                    Lib                   627       1000   24.4   33.4    36.5   33.4     38  88016000
-       showRowOfBars.row.\                 Lib                   628    1000000    5.8    0.0    12.2    0.0      9         0
-        showRowOfBars.mark                 Lib                   629    1000000    6.4    0.0     6.4    0.0     10         0
+ CAF:main4                                 Main                  611          0    0.0    0.0     9.3   58.1      0         0
+  main                                     Main                  620          0    0.0    0.0     9.3   58.1      0         0
+   showRowOfBars                           Lib                   621          1    2.6   22.6     9.3   58.1     20  56183880
+    showRowOfBars.meter                    Lib                   625          1    0.0    0.0     6.7   35.5      0     88016
+     showRowOfBars.meter.\                 Lib                   626       1000    0.0    0.0     6.7   35.4      0         0
+      showRowOfBars.row                    Lib                   627       1000    4.0   35.4     6.7   35.4     31  88016000
+       showRowOfBars.row.\                 Lib                   628    1000000    0.8    0.0     2.7    0.0      6         0
+        showRowOfBars.mark                 Lib                   629    1000000    1.9    0.0     1.9    0.0     15         0
     showRowOfBars.range                    Lib                   624          1    0.0    0.0     0.0    0.0      0     79984
     showRowOfBars.maxBar                   Lib                   623          1    0.0    0.0     0.0    0.0      0        16
     showRowOfBars.minBar                   Lib                   622          1    0.0    0.0     0.0    0.0      0        16
  CAF:main2                                 Main                  610          0    0.0    0.0     0.0    0.0      0         0
   main                                     Main                  632          0    0.0    0.0     0.0    0.0      0        96
- CAF:main3                                 Main                  609          0    0.0    0.0    34.0   44.6      0         0
-  main                                     Main                  633          0    0.0    0.0    34.0   44.6      0         0
-   main.biggestSquare                      Main                  634          0    0.0    0.0    34.0   44.6      0        16
-    findBiggestSquareSize                  Lib                   635          1    0.0    0.0    34.0   44.6      0         0
-     iterativelyFindBiggestSquareSize      Lib                   639        935    0.0    0.0    34.0   44.6      0         0
-      containsSquareOfSize                 Lib                   640       3342    3.2    0.3    34.0   44.6      5    766744
-       containsSquareOfSize.rest           Lib                   644       2407    0.0    0.0     0.0    0.0      0         0
-       containsSquareOfSize.keptFromWindow Lib                   643       2407    3.8    7.3     3.8    7.3      6  19207736
-       containsSquareOfSize.window         Lib                   642       2408    0.0    0.0     0.0    0.0      0         0
-       containsSquareOfSize.(...)          Lib                   641       2408   26.9   37.1    26.9   37.1     42  97677056
+ CAF:main3                                 Main                  609          0    0.0    0.0    86.6   41.3      0         0
+  main                                     Main                  633          0    0.0    0.0    86.6   41.3      0         0
+   main.biggestSquare                      Main                  634          0    0.0    0.0    86.6   41.3      0        16
+    findBiggestSquareSize                  Lib                   635          1    0.0    0.0    86.6   41.3      0         0
+     iterativelyFindBiggestSquareSize      Lib                   639        935    0.0    0.0    86.6   41.3      0         0
+      containsSquareOfSize                 Lib                   640     272665   83.7    7.0    86.6   41.3    651  17390736
+       containsSquareOfSize.window         Lib                   641     271731    3.0   34.3     3.0   34.3     23  85248736
      findBiggestSquareSize.startingAttempt Lib                   638          1    0.0    0.0     0.0    0.0      0         0
      findBiggestSquareSize.length'         Lib                   637          1    0.0    0.0     0.0    0.0      0         0
      findBiggestSquareSize.maxBar          Lib                   636          1    0.0    0.0     0.0    0.0      0        16
