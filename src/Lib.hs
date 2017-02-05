@@ -12,7 +12,7 @@ import System.Random (getStdRandom, randomR)
 
 generateRandomBars :: IO [Int]
 generateRandomBars =
-  replicateM 1000 (getStdRandom (randomR (1 :: Int, 1000)))
+  replicateM 10000 (getStdRandom (randomR (1 :: Int, 10000)))
 
 -- The width and height (which are the same number) of a square,
 -- represented as a single number here.

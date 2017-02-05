@@ -1,68 +1,50 @@
-	Sat Feb  4 21:54 2017 Time and Allocation Profiling Report  (Final)
+	Sat Feb  4 22:05 2017 Time and Allocation Profiling Report  (Final)
 
 	   suurin-nelio-exe +RTS -N -P -RTS
 
-	total time  =        0.16 secs   (156 ticks @ 1000 us, 1 processor)
-	total alloc = 263,587,344 bytes  (excludes profiling overheads)
+	total time  =        4.46 secs   (4462 ticks @ 1000 us, 1 processor)
+	total alloc = 12,328,332,160 bytes  (excludes profiling overheads)
 
 COST CENTRE                         MODULE  %time %alloc  ticks     bytes
 
-containsSquareOfSize.(...)          Lib      26.9   37.1     42  97677056
-showRowOfBars.row                   Lib      24.4   33.4     38  88016000
-main                                Main     20.5    0.4     32   1150328
-showRowOfBars                       Lib       8.3   21.3     13  56183968
-showRowOfBars.mark                  Lib       6.4    0.0     10         0
-showRowOfBars.row.\                 Lib       5.8    0.0      9         0
-containsSquareOfSize.keptFromWindow Lib       3.8    7.3      6  19207736
-containsSquareOfSize                Lib       3.2    0.3      5    766744
+containsSquareOfSize.(...)          Lib      69.2   83.7   3086 10323818880
+containsSquareOfSize                Lib      22.1    0.2    985  28455504
+containsSquareOfSize.keptFromWindow Lib       8.7   16.0    386 1973350400
 
 
                                                                                     individual      inherited
 COST CENTRE                                MODULE                no.     entries  %time %alloc   %time %alloc  ticks     bytes
 
-MAIN                                       MAIN                  307          0    0.0    0.1   100.0  100.0      0    377672
- main                                      Main                  615          0   20.5    0.4    20.5    0.4     32    930784
-  main.biggestSquare                       Main                  631          1    0.0    0.0     0.0    0.0      0         0
+MAIN                                       MAIN                  307          0    0.0    0.0   100.0  100.0      0     37432
+ main                                      Main                  615          0    0.0    0.0     0.0    0.0      1     32952
  CAF:main1                                 Main                  612          0    0.0    0.0     0.0    0.0      0        16
   main                                     Main                  614          1    0.0    0.0     0.0    0.0      0         0
- CAF:main4                                 Main                  611          0    0.0    0.0    45.5   54.8      0         0
-  main                                     Main                  620          0    0.0    0.0    45.5   54.8      0         0
-   showRowOfBars                           Lib                   621          1    8.3   21.3    45.5   54.8     13  56183880
-    showRowOfBars.meter                    Lib                   625          1    0.6    0.0    37.2   33.4      1     88016
-     showRowOfBars.meter.\                 Lib                   626       1000    0.0    0.0    36.5   33.4      0         0
-      showRowOfBars.row                    Lib                   627       1000   24.4   33.4    36.5   33.4     38  88016000
-       showRowOfBars.row.\                 Lib                   628    1000000    5.8    0.0    12.2    0.0      9         0
-        showRowOfBars.mark                 Lib                   629    1000000    6.4    0.0     6.4    0.0     10         0
-    showRowOfBars.range                    Lib                   624          1    0.0    0.0     0.0    0.0      0     79984
-    showRowOfBars.maxBar                   Lib                   623          1    0.0    0.0     0.0    0.0      0        16
-    showRowOfBars.minBar                   Lib                   622          1    0.0    0.0     0.0    0.0      0        16
- CAF:main2                                 Main                  610          0    0.0    0.0     0.0    0.0      0         0
-  main                                     Main                  632          0    0.0    0.0     0.0    0.0      0        96
- CAF:main3                                 Main                  609          0    0.0    0.0    34.0   44.6      0         0
-  main                                     Main                  633          0    0.0    0.0    34.0   44.6      0         0
-   main.biggestSquare                      Main                  634          0    0.0    0.0    34.0   44.6      0        16
-    findBiggestSquareSize                  Lib                   635          1    0.0    0.0    34.0   44.6      0         0
-     iterativelyFindBiggestSquareSize      Lib                   639        935    0.0    0.0    34.0   44.6      0         0
-      containsSquareOfSize                 Lib                   640       3342    3.2    0.3    34.0   44.6      5    766744
-       containsSquareOfSize.rest           Lib                   644       2407    0.0    0.0     0.0    0.0      0         0
-       containsSquareOfSize.keptFromWindow Lib                   643       2407    3.8    7.3     3.8    7.3      6  19207736
-       containsSquareOfSize.window         Lib                   642       2408    0.0    0.0     0.0    0.0      0         0
-       containsSquareOfSize.(...)          Lib                   641       2408   26.9   37.1    26.9   37.1     42  97677056
-     findBiggestSquareSize.startingAttempt Lib                   638          1    0.0    0.0     0.0    0.0      0         0
-     findBiggestSquareSize.length'         Lib                   637          1    0.0    0.0     0.0    0.0      0         0
-     findBiggestSquareSize.maxBar          Lib                   636          1    0.0    0.0     0.0    0.0      0        16
- CAF:main5                                 Main                  608          0    0.0    0.0     0.0    0.1      0         0
-  main                                     Main                  616          0    0.0    0.1     0.0    0.1      0    219432
- CAF:main_randomBars                       Main                  607          0    0.0    0.0     0.0    0.0      0         0
+ CAF:main2                                 Main                  611          0    0.0    0.0     0.0    0.0      0         0
+  main                                     Main                  620          0    0.0    0.0     0.0    0.0      0       136
+   main.biggestSquare                      Main                  621          1    0.0    0.0     0.0    0.0      0         0
+ CAF:main3                                 Main                  610          0    0.0    0.0    99.9  100.0      0         0
+  main                                     Main                  622          0    0.0    0.0    99.9  100.0      0         0
+   main.biggestSquare                      Main                  623          0    0.0    0.0    99.9  100.0      0        16
+    findBiggestSquareSize                  Lib                   624          1    0.0    0.0    99.9  100.0      0         0
+     iterativelyFindBiggestSquareSize      Lib                   628       9799    0.0    0.0    99.9  100.0      0         0
+      containsSquareOfSize                 Lib                   629      45958   22.1    0.2    99.9  100.0    985  28455504
+       containsSquareOfSize.rest           Lib                   633      36159    0.0    0.0     0.0    0.0      0         0
+       containsSquareOfSize.keptFromWindow Lib                   632      36159    8.7   16.0     8.7   16.0    386 1973350400
+       containsSquareOfSize.window         Lib                   631      36160    0.0    0.0     0.0    0.0      0         0
+       containsSquareOfSize.(...)          Lib                   630      36160   69.2   83.7    69.2   83.7   3086 10323818880
+     findBiggestSquareSize.startingAttempt Lib                   627          1    0.0    0.0     0.0    0.0      0         0
+     findBiggestSquareSize.length'         Lib                   626          1    0.0    0.0     0.0    0.0      0         0
+     findBiggestSquareSize.maxBar          Lib                   625          1    0.0    0.0     0.0    0.0      0        16
+ CAF:main4                                 Main                  609          0    0.0    0.0     0.1    0.0      0         0
+  main                                     Main                  616          0    0.1    0.0     0.1    0.0      3   2597032
+ CAF:main_randomBars                       Main                  608          0    0.0    0.0     0.0    0.0      0         0
   main                                     Main                  617          0    0.0    0.0     0.0    0.0      0        16
    main.randomBars                         Main                  618          1    0.0    0.0     0.0    0.0      0         0
- CAF:bars                                  Main                  606          0    0.0    0.0     0.0    0.0      0        24
-  bars                                     Main                  619          1    0.0    0.0     0.0    0.0      0         0
- CAF:showRowOfBars1                        Lib                   605          0    0.0    0.0     0.0    0.0      0         0
-  showRowOfBars                            Lib                   630          0    0.0    0.0     0.0    0.0      0        88
+ CAF:bars10000                             Main                  607          0    0.0    0.0     0.0    0.0      0        24
+  bars10000                                Main                  619          1    0.0    0.0     0.0    0.0      0         0
  CAF                                       GHC.Conc.Signal       395          0    0.0    0.0     0.0    0.0      0       656
  CAF                                       GHC.IO.Encoding       378          0    0.0    0.0     0.0    0.0      0      2872
- CAF                                       GHC.IO.Encoding.Iconv 376          0    0.0    0.0     0.0    0.0      0       232
+ CAF                                       GHC.IO.Encoding.Iconv 376          0    0.0    0.0     0.0    0.0      1       232
  CAF                                       GHC.IO.Handle.FD      367          0    0.0    0.0     0.0    0.0      0     34512
  CAF                                       GHC.IO.Handle.Text    365          0    0.0    0.0     0.0    0.0      0        88
  CAF                                       GHC.Event.KQueue      326          0    0.0    0.0     0.0    0.0      0        48
